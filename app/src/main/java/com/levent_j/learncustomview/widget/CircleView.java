@@ -1,11 +1,14 @@
 package com.levent_j.learncustomview.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.levent_j.learncustomview.R;
 
 /**
  * Created by levent_j on 16-9-16.
@@ -22,11 +25,17 @@ public class CircleView extends View{
 
     public CircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleView);
+        mColor = typedArray.getColor(R.styleable.CircleView_circle_color,Color.BLACK);
+        typedArray.recycle();
         init();
     }
 
     public CircleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleView);
+        mColor = typedArray.getColor(R.styleable.CircleView_circle_color,Color.BLACK);
+        typedArray.recycle();
         init();
     }
 
