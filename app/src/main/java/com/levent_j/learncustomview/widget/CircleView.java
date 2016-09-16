@@ -38,8 +38,12 @@ public class CircleView extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int width = getWidth();
-        int height = getHeight();
+        int paddingLeft = getPaddingLeft();
+        int paddingRight = getPaddingRight();
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+        int width = getWidth()-paddingLeft-paddingRight;
+        int height = getHeight()-paddingTop-paddingBottom;
         int radius = Math.min(width,height)/2;
         canvas.drawCircle(width/2,height/2,radius,mPaint);
     }
